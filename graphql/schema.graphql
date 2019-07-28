@@ -1,0 +1,11 @@
+type Persion {
+    id: Int!
+    name: String!
+    age: Int!
+    gender: String!
+}
+
+type Query {
+    people: [Persion]!
+    person(id: Int!): Persion
+}
