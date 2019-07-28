@@ -1,14 +1,11 @@
-import {addMovie, getById, getMoives, deleteMovie} from './db';
+import {getMovie, getMovies, getSuggestions} from './db';
 
 const resolvers = {
     Query: {
-        movies: () => getMoives(),
-        // 첫 번째 인자 _ 는 현재 오브젝트를 의미. 이후 더 자세히 설명
-        movie: (_, { id }) => getById(id)
-    },
-    Mutation: {
-        addMovie: (_, {name, score}) => addMovie(name, score),
-        deleteMovie: (_, {id}) => deleteMovie(id)
+        // _ 는 변수이름임. 아무거나 써도 되는 듯.
+        movies: (_, {limit, rating}) => getMovies({limit, rating}),
+        movie: (_, {id}) => getMovie(id),
+        suggestions: (_, {id}) => getSuggestions(id)
     }
 };
 
