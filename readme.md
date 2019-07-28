@@ -36,7 +36,7 @@ Simple Flow
 ---
 <img src="./.docs/sample1.png" width=250 alt="Directory path image" />
 
-1. GraphQLServer start
+**1. GraphQLServer start**
 ```javascript
 import { GraphQLServer } from 'graphql-yoga';
 import resolvers from './graphql/resolvers';
@@ -51,7 +51,9 @@ server.start(() => console.log('GraphQL is running...'));
 - typeDefs 는 요청할 데이터의 형태(타입)가 모여있는 곳이다.
 - resolvers 는 Mutations, 데이터의 가공이 일어나는 곳이다.
 
-2. Set TypeDefs
+<br/>
+
+**2. Set TypeDefs**
 ```javascript
 type Persion {
     id: Int!
@@ -68,7 +70,9 @@ type Query {
 - Query 에 요청할 녀석들을 적는다.
 - people 을 요청할 경우 Person 객체 배열이 떨어지고 person(id) 를 하면 id 의 Person 객체가 떨어진다.
 
-3. Set Resolvers
+<br/>
+
+**3. Set Resolvers**
 ```javascript
 import {getById, people} from './db';
 
@@ -83,7 +87,9 @@ export default resolvers;
 ``` 
 - Query 에서 타입을 지정했다면 Resolvers 에서는 실제 로직의 형태를 정의한다.
 
-4. Set Data 
+<br/>
+
+**4. Set Data** 
 ```javascript
 export const people = [
     {
@@ -108,7 +114,9 @@ export const getById = (id) => {
 - db.js 에서 데이터와 실제 함수를 만든다.
 - 이 부분은 나중에 API 요청이나 Service 등으로 빼야할듯?
 
-4. Results
+<br/>
+
+**5. Results**
 ```javascript
 query {
   person (id: 1) {
